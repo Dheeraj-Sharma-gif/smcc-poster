@@ -319,7 +319,6 @@ const MOCK_MY_REPLIES = [
 ];
 
 const MOCK_FOLLOWUPS = [
-const MOCK_FOLLOWUPS = [
   "When's the next trip happening?",
   "Already planning to go there this month!",
   "Do you have the recipe written down?",
