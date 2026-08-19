@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  SMCC — Social Media Command Center
+  Design system: dark-first "Mission Control" with glassmorphism.
+*/
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 20% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 20% 12%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 221 83% 53%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 0 0% 100%;
+  --success: 142 71% 45%;
+  --warning: 38 92% 50%;
+  --danger: 0 84% 60%;
+  --glass: 0 0% 100%;
+  --radius: 0.9rem;
+}
+
+.dark {
+  --background: 222 47% 5%;
+  --foreground: 210 20% 96%;
+  --card: 222 40% 8%;
+  --card-foreground: 210 20% 96%;
+  --muted: 222 30% 14%;
+  --muted-foreground: 217 15% 65%;
+  --border: 222 25% 18%;
+  --input: 222 25% 18%;
+  --ring: 217 91% 60%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 5%;
+  --success: 142 69% 58%;
+  --warning: 38 92% 60%;
+  --danger: 0 84% 65%;
+  --glass: 222 40% 10%;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --color-danger: hsl(var(--danger));
+
+  --color-instagram: #e1306c;
+  --color-facebook: #1877f2;
+  --color-linkedin: #0a66c2;
+  --color-youtube: #ff0000;
+  --color-x: #e7e9ea;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 0.25rem);
+  --radius-sm: calc(var(--radius) - 0.5rem);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(60rem 60rem at 12% -10%, hsl(217 91% 60% / 0.10), transparent 60%),
+    radial-gradient(50rem 50rem at 100% 0%, hsl(280 80% 60% / 0.08), transparent 55%),
+    radial-gradient(50rem 50rem at 50% 120%, hsl(142 69% 58% / 0.06), transparent 55%);
+  background-attachment: fixed;
+}
+
+.glass {
+  background: hsl(var(--glass) / 0.6);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid hsl(var(--border) / 0.7);
+}
+
+.glass-strong {
+  background: hsl(var(--glass) / 0.85);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid hsl(var(--border) / 0.8);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); background-clip: content-box; }
+
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.skeleton { position: relative; overflow: hidden; background: hsl(var(--muted)); }
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.06), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 hsl(var(--success) / 0.5); }
+  70% { box-shadow: 0 0 0 8px hsl(var(--success) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--success) / 0); }
+}
+.live-dot { animation: pulse-ring 2s infinite; }

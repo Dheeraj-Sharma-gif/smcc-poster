@@ -1,0 +1,10 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue background -->
+  <rect width="128" height="128" fill="#0052CC"/>
+  
+  <!-- White P letter -->
+  <text x="64" y="95" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">P</text>
+  
+  <!-- Small dot/accent -->
+  <circle cx="85" cy="100" r="6" fill="white" opacity="0.7"/>
+</svg>
